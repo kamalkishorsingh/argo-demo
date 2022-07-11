@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: org-alb-private-argodemo
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internal
+    alb.ingress.kubernetes.io/backend-protocol: HTTP
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/group.name: prod-k8-private-test
+spec:
+  rules:
+  - host: nginx-argodemo.internal.organization.com
+    http:
+      paths:
+        - backend:
+            serviceName: production-nginx-argodemo-org
+            servicePort: http

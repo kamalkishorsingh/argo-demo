@@ -1,0 +1,6 @@
+- op: replace
+  path: /spec/template/spec/containers/0/name
+  value: nginx-argodemo-application
+- op: replace
+  path: /spec/template/metadata/creationTimestamp
+  value: '2021-09-03T01:51:47Z'

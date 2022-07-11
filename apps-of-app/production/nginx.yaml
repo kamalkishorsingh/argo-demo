@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx
+  namespace: argocd
+spec:
+  destination:
+    namespace: frontend
+    server: https://kubernetes.default.svc
+  project: nginx-project-frontend
+  source:
+    path: apps/overlays/production/nginx
+    repoURL: https://github.com/kamalkishorsingh/argo-demo.git
+    targetRevision: main
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true
