@@ -11,7 +11,7 @@ spec:
   source:
     path: apps/overlays/production/headlamp
     repoURL: https://github.com/kamalkishorsingh/argo-demo.git
-    targetRevision: master
+    targetRevision: main
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
